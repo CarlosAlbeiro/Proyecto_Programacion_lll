@@ -1,46 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="729.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.marketplace.controllers.InicioDeSeccionController">
-   <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #a6c8ff;" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" onMouseClicked="#Home" prefHeight="40.0" prefWidth="106.0" style="-fx-text-fill: #f0f0f0; -fx-background-color: #2b76f0;" text="Home">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#Perfil" prefHeight="40.0" prefWidth="106.0" style="-fx-text-fill: #f0f0f0; -fx-background-color: #2b76f0;" text="Perfil">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#Mensajes" prefHeight="40.0" prefWidth="106.0" style="-fx-text-fill: #f0f0f0; -fx-background-color: #2b76f0;" text="Mensajes">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#Ajustes" prefHeight="40.0" prefWidth="106.0" style="-fx-text-fill: #f0f0f0; -fx-background-color: #2b76f0;" text="Ajustes">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-         <BorderPane.margin>
-            <Insets right="3.0" />
-         </BorderPane.margin>
-      </VBox>
-   </left>
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="729.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.marketplace.controllers.InicioDeSeccionController">
    <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="729.0" style="-fx-background-color: #EC684D;" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="Butt_Salir" mnemonicParsing="false" onAction="#Salir" style="-fx-background-color: #ff0000;" text="Salir" textFill="#fffefe" />
-         </children>
-      </HBox>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="Inicio" text="Inicio">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="729.0" style="-fx-background-color: #ffff;" />
+            </content>
+          </Tab>
+          <Tab fx:id="Perfil" text="Perfil">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab fx:id="Mensaje" text="Mensajes">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="Sugeridos" text="Sugeridos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </top>
 </BorderPane>

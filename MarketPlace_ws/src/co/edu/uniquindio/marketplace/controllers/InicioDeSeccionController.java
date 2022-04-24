@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -29,8 +30,15 @@ public class InicioDeSeccionController implements Initializable {
     @FXML
     private BorderPane BorderPane;
     @FXML
-    private Button Butt_Salir;
-
+    private Tab Inicio;
+    @FXML
+    private Tab Perfil;
+    @FXML
+    private Tab Mensaje;
+    @FXML
+    private Tab Sugeridos;
+    
+    PerfilController
     /**
      * Initializes the controller class.
      */
@@ -41,7 +49,6 @@ public class InicioDeSeccionController implements Initializable {
         
     }    
 
-    @FXML
     private void Salir(ActionEvent event) {
         
         //cerrar ventana
@@ -51,24 +58,20 @@ public class InicioDeSeccionController implements Initializable {
         
     }
 
-    @FXML
-    private void Home(MouseEvent event) {
+    private void Inicio(MouseEvent event) {
         cargarVentana("/co/edu/uniquindio/marketplace/views/Home");
         
     }
 
-    @FXML
     private void Perfil(MouseEvent event) {
         cargarVentana("/co/edu/uniquindio/marketplace/views/Perfil");
     }
 
-    @FXML
     private void Mensajes(MouseEvent event) {
         cargarVentana("/co/edu/uniquindio/marketplace/views/Mensajes");
     }
 
-    @FXML
-    private void Ajustes(MouseEvent event) {
+    private void Sugeridos(MouseEvent event) {
         cargarVentana("/co/edu/uniquindio/marketplace/views/Ajustes");
         
     }
@@ -86,6 +89,29 @@ public class InicioDeSeccionController implements Initializable {
         }
         BorderPane.setCenter(root);
     
+    }
+     public void closeWindows() {
+       
+         
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/marketplace/views/login.fxml"));
+                
+                Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+                //Controlador de la vista
+                LoginController controlador = loader.getController();//poner la clase del controlador 
+                Scene scene = new Scene(root);
+                Stage stage = new Stage ();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setScene(scene);
+                stage.show();
+              
+                //Stage cerrarPantalla = (Stage) this.But_volver.getScene().getWindow();
+                //cerrarPantalla.close();
     }
     
 }

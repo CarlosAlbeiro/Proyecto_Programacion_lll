@@ -32,7 +32,7 @@ public class MarketPlace {
     }
     public boolean loginVendedor(String clave, String correo){
         int indicador=0;
-        for (int i = 0; i < listaVendedores.size()-1 ; i++) {
+        for (int i = 0; i <= listaVendedores.size()-1 ; i++) {
             if (listaVendedores.get(i).getClave().equals(clave) && listaVendedores.get(i).getCorreo().equals(correo) ){
                 indicador=1;
                 i=listaVendedores.size()+1;

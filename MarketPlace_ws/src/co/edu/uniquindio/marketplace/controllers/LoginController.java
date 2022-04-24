@@ -88,7 +88,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void Iniciar_Sesion(ActionEvent event) {
-       /* String clave = this.pass_contr.getText();
+        String clave = this.pass_contr.getText();
         String correo = this.texf_usuario.getText();
         if(pass_contr.getText().isEmpty()||texf_usuario.getText().isEmpty()){
              // la alerta de guardado
@@ -98,14 +98,35 @@ public class LoginController implements Initializable {
             alert.setContentText("Por favor diligencie todo los campos");
             alert.showAndWait();
         }else{
-            market.loginVendedor(clave, correo);
-            if(market.loginVendedor(clave, correo)){
+            boolean confi= market.loginVendedor(clave, correo);
+            if(confi==true){
                  //iniciar la pantalla del lobbie
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setTitle("ERROR");
                 alert.setContentText("Bienvenido");
                 alert.showAndWait();
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/marketplace/views/inicioDeSeccion.fxml"));
+                
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
+                //Controlador de la vista
+                InicioDeSeccionController controladorr = loader.getController();//poner la clase del controlador 
+                Scene scene = new Scene(root);
+                Stage stage = new Stage ();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setScene(scene);
+                stage.show();
+                //abre y cierra las diferentes ventanas
+                stage.setOnCloseRequest(e -> controladorr.closeWindows());
+                Stage cerrarPantalla = (Stage) this.bbt_iniciarSesion.getScene().getWindow();
+                cerrarPantalla.close();
                 
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -114,52 +135,7 @@ public class LoginController implements Initializable {
                 alert.setContentText("Los datos no coinciden");
                 alert.showAndWait();
             }
-        }*/
-           
-                //---------------------Cargar ventana inicio de seccion-----------------
-                 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/marketplace/views/inicioDeSeccion.fxml"));
-                
-                Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-                //Controlador de la vista
-                InicioDeSeccionController controlador = loader.getController();//poner la clase del controlador 
-                Scene scene = new Scene(root);
-                Stage stage = new Stage ();
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setScene(scene);
-                stage.showAndWait();
-                 
-                scene.setFill(Color.TRANSPARENT);
-        //Metodo para que la pantalla se mueva libre mente
-               root.setOnMousePressed(new EventHandler<MouseEvent>(){
-                @Override
-                public void handle(MouseEvent event) {
-                
-                x = event.getSceneX();
-                y = event.getSceneY();
-                 }
-        });
-     
-        root.setOnMouseDragged(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                
-                stage.setX(event.getScreenX()-x);
-                stage.setY(event.getScreenY()-y);
-                 }
-        });
-        
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
-       
-         
     }
     
 }
