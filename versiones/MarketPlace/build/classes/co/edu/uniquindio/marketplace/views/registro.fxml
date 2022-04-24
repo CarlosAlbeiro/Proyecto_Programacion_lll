@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="615.0" prefWidth="446.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.marketplace.controllers.RegistroController">
+   <children>
+      <Label layoutX="51.0" layoutY="115.0" text="Nombre:" />
+      <Label layoutX="52.0" layoutY="181.0" text="Apellidos:">
+         <font>
+            <Font name="Cambria" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Tex_nombre" layoutX="52.0" layoutY="142.0" />
+      <Label fx:id="Tex_Nombre" layoutX="51.0" layoutY="81.0" text="Por favor diligencie el siguiente formulario:" />
+      <TextField fx:id="Tex_apellidos" layoutX="52.0" layoutY="205.0" />
+      <Label layoutX="52.0" layoutY="241.0" text="E-mail:" />
+      <Label layoutX="53.0" layoutY="307.0" text="Cedula:" />
+      <TextField fx:id="Tex_correo" layoutX="53.0" layoutY="268.0" />
+      <TextField fx:id="Tex_cedula" layoutX="53.0" layoutY="331.0" />
+      <Label layoutX="53.0" layoutY="429.0" text="Contraseña:">
+         <font>
+            <Font name="Cambria" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Tex_telefono" layoutX="53.0" layoutY="390.0" />
+      <TextField fx:id="Tex_contraseña" layoutX="53.0" layoutY="453.0" />
+      <Label layoutX="53.0" layoutY="489.0" text="Confirmar Contraseña:" />
+      <TextField fx:id="Tex_confirmarContra" layoutX="54.0" layoutY="516.0" />
+      <Label layoutX="55.0" layoutY="365.0" text="Telefono:" />
+      <Button fx:id="But_volver" layoutX="337.0" layoutY="69.0" mnemonicParsing="false" onAction="#eventoVolver" style="-fx-background-color: #ff0000;" text="Volver" />
+      <AnchorPane layoutX="6.0" prefHeight="57.0" prefWidth="446.0" style="-fx-background-color: #EC684D;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="158.0" layoutY="9.0" prefHeight="40.0" prefWidth="151.0" text="Registro" textFill="#fffbfb">
+               <font>
+                  <Font name="Cambria" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Separator layoutX="13.0" layoutY="106.0" prefHeight="3.0" prefWidth="421.0" />
+      <Separator layoutX="25.0" layoutY="548.0" prefHeight="3.0" prefWidth="421.0" />
+      <Button fx:id="But_regis" layoutX="337.0" layoutY="558.0" mnemonicParsing="false" onAction="#eventoRegistrar" style="-fx-background-color: #ff0000;" text="Registrar" />
+   </children>
+</AnchorPane>

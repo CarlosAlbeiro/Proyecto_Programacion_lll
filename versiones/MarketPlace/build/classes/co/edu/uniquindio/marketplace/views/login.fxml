@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.marketplace.controllers.LoginController">
+   <top>
+      <Pane prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #EC684D;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="232.0" layoutY="8.0" text="Bienvenido" textFill="#f2efef">
+               <font>
+                  <Font name="Cambria" size="28.0" />
+               </font></Label>
+            <Button fx:id="btt_salir" layoutX="505.0" layoutY="14.0" mnemonicParsing="false" onAction="#Salir" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #ff0000;" text="Salir" />
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="350.0" prefWidth="305.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="334.0" fitWidth="298.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../resources/Imagenes/logo2.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="368.0" prefWidth="295.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="bbt_registro" layoutX="64.0" layoutY="138.0" mnemonicParsing="false" onAction="#HacerRegistro" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #EC684D;" text="Registrarse" />
+            <Button fx:id="bbt_iniciarSesion" layoutX="148.0" layoutY="138.0" mnemonicParsing="false" onAction="#Iniciar_Sesion" style="-fx-background-color: #4b83eb;" text="Iniciar Sesion" />
+            <PasswordField fx:id="pass_contr" layoutX="59.0" layoutY="97.0" prefHeight="25.0" prefWidth="173.0" promptText="***********" />
+            <TextField fx:id="texf_usuario" layoutX="59.0" layoutY="47.0" prefHeight="25.0" prefWidth="170.0" promptText="correo o telefono" />
+            <Label layoutX="59.0" layoutY="30.0" text="Usuario:" />
+            <Label layoutX="59.0" layoutY="80.0" text="Contraseña:" />
+            <ImageView fitHeight="29.0" fitWidth="32.0" layoutX="27.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Imagenes/usuario.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="32.0" layoutX="27.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Imagenes/contraseña.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
