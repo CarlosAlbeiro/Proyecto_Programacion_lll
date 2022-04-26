@@ -38,7 +38,7 @@ public class InicioDeSeccionController implements Initializable {
     @FXML
     private Tab Sugeridos;
     
-    PerfilController
+
     /**
      * Initializes the controller class.
      */
