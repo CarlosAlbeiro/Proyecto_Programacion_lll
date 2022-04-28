@@ -1,9 +1,16 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package co.edu.uniquindio.marketplace.model;
 
 import java.util.ArrayList;
 
-
+/**
+ *
+ * @author Catalina
+ */
 public class MarketPlace {
     public  ArrayList<Vendedores> listaVendedores;
     
