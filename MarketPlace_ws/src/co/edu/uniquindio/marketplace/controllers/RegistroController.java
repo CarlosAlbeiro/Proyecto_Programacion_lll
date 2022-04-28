@@ -46,7 +46,7 @@ public class RegistroController implements Initializable {
     @FXML
     private TextField Tex_telefono;
     @FXML
-    private TextField Tex_contras;
+    private TextField Tex_contraseña;
     @FXML
     private TextField Tex_confirmarContra;
     @FXML
@@ -100,12 +100,12 @@ public class RegistroController implements Initializable {
         String telefono=this.Tex_telefono.getText();
         String cedula = this.Tex_cedula.getText();
         String correo = this.Tex_correo.getText();
-        String clave=this.Tex_contras.getText();
+        String clave=this.Tex_contraseña.getText();
         String clave2=this.Tex_confirmarContra.getText();
         
         if(Tex_nombre.getText().isEmpty() || Tex_apellidos.getText().isEmpty()||
                 Tex_telefono.getText().isEmpty()||Tex_cedula.getText().isEmpty()|| Tex_correo.getText().isEmpty()||
-                Tex_contras.getText().isEmpty()||Tex_confirmarContra.getText().isEmpty()){
+                Tex_contraseña.getText().isEmpty()||Tex_confirmarContra.getText().isEmpty()){
             
              // la alerta de guardado
             Alert alert = new Alert(Alert.AlertType.ERROR);

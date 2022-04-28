@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="MarketPlace.jnlp">
+  <information>
+    <title>MarketPlace</title>
+    <vendor>31285</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="MarketPlace.jar" size="292764" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="co.edu.uniquindio.marketplace.Marketplace"  name="MarketPlace" />
+  <update check="always"/>
+</jnlp>
