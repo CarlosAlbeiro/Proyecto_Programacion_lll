@@ -114,6 +114,7 @@ public class RegistroController implements Initializable {
             alert.setContentText("Por favor diligencie todo los campos");
             alert.showAndWait();
           
+            
         }else{
             if (clave.equals(clave2)){
                 market.registrarVendedor(nombre, apellido,telefono, cedula,correo, clave);
