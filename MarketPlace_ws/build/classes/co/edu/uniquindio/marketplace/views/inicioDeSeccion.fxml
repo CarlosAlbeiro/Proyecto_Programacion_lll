@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,12 +17,18 @@
           </Tab>
           <Tab fx:id="Perfil" text="Perfil">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="perfil" layoutX="65.0" layoutY="45.0" mnemonicParsing="false" onAction="#abrirperfil" text="perfil" />
+                     </children></AnchorPane>
             </content>
           </Tab>
             <Tab fx:id="Mensaje" text="Mensajes">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="mesaje" layoutX="136.0" layoutY="73.0" mnemonicParsing="false" onAction="#mensaje" text="Mensaje" />
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab fx:id="Sugeridos" text="Sugeridos">
