@@ -1,10 +1,14 @@
 package co.edu.uniquindio.marketplace.controllers;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import co.edu.uniquindio.marketplace.model.MarketPlace;
+
 
 public class SingletonMarket {
 
-	 MarketPlace market = new MarketPlace();
+	MarketPlace market;
 
 
 	//------------------------------  Singleton ------------------------------------------------
@@ -20,6 +24,8 @@ public class SingletonMarket {
 	}
 
 	public SingletonMarket() {
+
+
 		//1. inicializar datos y luego guardarlo en archivos
 //		iniciarSalvarDatosPrueba();
 
@@ -40,41 +46,201 @@ public class SingletonMarket {
 		if(market == null)
 		{
 			System.out.println("es null");
-			inicializarDatos();
+			//inicializarDatos();
 //			guardarResourceSerializable();
-// 			guardarResourceXML();
+			//guardarResourceXML();
 		}
 
+		//Registrar la accion de incio de sesión
+		//Persistencia.guardaRegistroLog("Inicio de sesión del usuario:pedro", 1, "inicioSesion");
+
+
 	}
 
 
 
-	public void inicializarDatos() {
-		
+//	private void iniciarSalvarDatosPrueba() {
+//
+//		inicializarDatos();
+//
+//		try {
+//
+//			Persistencia.guardarEmpleados(getBanco().getListaEmpleados());
+//			Persistencia.guardarClientes(getBanco().getListaClientes());
+//
+//			//Persistencia.cargarDatosArchivos(getBanco());
+//
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+
+
+//	private void cargarDatosDesdeArchivos() {
+//
+//		market = new MarketPlace();
+//
+//		try {
+//
+//			Persistencia.cargarDatosArchivos(getBanco());
+//
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+
+//	public void cargarResourceBinario() {
+//
+//		banco = Persistencia.cargarRecursoBancoBinario();
+//	}
+//
+//
+//	public void guardarResourceBinario() {
+//
+//	    Persistencia.guardarRecursoBancoBinario(banco);
+//	}
+
+
+//	public void cargarResourceXML() {
+//
+//		banco = Persistencia.cargarRecursoBancoXML();
+//	}
+//
+//
+//	public void guardarResourceXML() {
+//
+//	    Persistencia.guardarRecursoBancoXML(banco);
+//	}
+
+
+//
+//	private void inicializarDatos() {
+//
+//		banco = new Banco();
+//
+//		Cliente cliente = new Cliente();
+//		cliente.setNombre("juan");
+//		cliente.setApellido("arias");
+//		cliente.setCedula("125454");
+//		cliente.setDireccion("Armenia");
+//		cliente.setCorreo("uni1@");
+//		cliente.setFechaNacimiento("12454");
+//		cliente.setTelefono("125444");
+//
+//		banco.getListaClientes().add(cliente);
+//
+//		cliente = new Cliente();
+//		cliente.setNombre("Pedro");
+//		cliente.setApellido("Perez");
+//		cliente.setCedula("77787");
+//		cliente.setDireccion("Pererira");
+//		cliente.setCorreo("uni2@");
+//		cliente.setFechaNacimiento("12454");
+//		cliente.setTelefono("125444");
+//
+//		banco.getListaClientes().add(cliente);
+//
+//		cliente = new Cliente();
+//		cliente.setNombre("Alberto");
+//		cliente.setApellido("Arias");
+//		cliente.setCedula("12555");
+//		cliente.setDireccion("Pererira");
+//		cliente.setCorreo("uni3@");
+//		cliente.setFechaNacimiento("12454");
+//		cliente.setTelefono("125444");
+//
+//		banco.getListaClientes().add(cliente);
+//
+//
+//		Empleado empleado = new Empleado();
+//		empleado.setNombre("juan");
+//		empleado.setApellido("arias");
+//		empleado.setCedula("125454");
+//		empleado.setFechaNacimiento("12454");
+//		banco.getListaEmpleados().add(empleado);
+//
+//
+//		empleado = new Empleado();
+//		empleado.setNombre("Ana");
+//		empleado.setApellido("alzate");
+//		empleado.setCedula("125454");
+//		empleado.setFechaNacimiento("12454");
+//		banco.getListaEmpleados().add(empleado);
+//
+//		empleado = new Empleado();
+//		empleado.setNombre("Pedro");
+//		empleado.setApellido("perez");
+//		empleado.setCedula("125454");
+//		empleado.setFechaNacimiento("12454");
+//		banco.getListaEmpleados().add(empleado);
+//
+//		System.out.println("Banco inicializado "+banco );
+//
+//	}
+
+	
+
+//
+//	@Override
+//	public Empleado crearEmpleado(String nombre, String apellido, String cedula, String fechaNacimiento) {
+//
+//
+//		Empleado empleado = null;
+//
+//		try {
+//			empleado = getBanco().crearEmpleado(nombre, apellido, cedula, fechaNacimiento);
+//		} catch (EmpleadoException e) {
+//			e.getMessage();
+//		}
+//
+//		return empleado;
+//
+//	}
+
+	public MarketPlace getMarket() {
+		return market;
 	}
 
-	public MarketPlace getEmpresa() {
-		return empresa;
+	public void setMarket(MarketPlace market) {
+		this.market = market;
 	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
+//	@Override
+//	public boolean actualizarEmpleado(String cedulaActual, String nombre, String apellido, String cedula, String fechaNacimiento) {
+//
+//		return getBanco().actualizarEmpleado(cedulaActual, nombre, apellido, cedula, fechaNacimiento);
+//	}
+//
+//	@Override
+//	public Boolean eliminarEmpleado(String cedula) {
+//
+//		boolean flagEmpleadoExiste = false;
+//
+//		try {
+//			flagEmpleadoExiste = getBanco().eliminarEmpleado(cedula);
+//		} catch (EmpleadoException e) {
+//			// TODO Auto-generated catch block
+//			e.getMessage();
+//		}
+//		return flagEmpleadoExiste;
+//	}
 
-	public boolean crearEmpleado(String nombre, String apellido, String cedula) throws IOException {
-		boolean creado = false;
-		Empleado emple = new Empleado();
-		emple.setNombre(nombre);
-		emple.setApelli(apellido);
-		emple.setCedula(cedula);
-		creado = empresa.crearEmpleado(emple);
-		
-		if(creado) {
-		 Persistencia.guardarEmpleados(empresa.getListaEmpleados());
-		}
-		
-		return creado;
-		
-	}
+//	@Override
+//	public Empleado obtenerEmpleado(String cedula) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public ArrayList<Empleado> obtenerEmpleados() {
+//
+//		return banco.getListaEmpleados();
+//	}
+//
+
+
+
 
 }

@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author 31285
+ * @author Carlos Galeano
  */
 public class Marketplace extends Application {
       

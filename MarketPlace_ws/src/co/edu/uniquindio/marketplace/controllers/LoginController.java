@@ -124,9 +124,9 @@ public class LoginController implements Initializable {
                 stage.setScene(scene);
                 stage.show();
                 //abre y cierra las diferentes ventanas
-                stage.setOnCloseRequest(e -> controladorr.closeWindows());
-                Stage cerrarPantalla = (Stage) this.bbt_iniciarSesion.getScene().getWindow();
-                cerrarPantalla.close();
+//                stage.setOnCloseRequest(e -> controladorr.closeWindows());
+//                Stage cerrarPantalla = (Stage) this.bbt_iniciarSesion.getScene().getWindow();
+//                cerrarPantalla.close();
                 
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
