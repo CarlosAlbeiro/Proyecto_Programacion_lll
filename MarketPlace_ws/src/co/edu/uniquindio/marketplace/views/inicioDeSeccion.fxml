@@ -1,47 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="729.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.marketplace.controllers.InicioDeSeccionController">
-   <top>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab fx:id="Inicio" text="Muro">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="729.0" style="-fx-background-color: #ffff;" />
-            </content>
-          </Tab>
-          <Tab fx:id="Perfil" text="Perfil">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="perfil" layoutX="65.0" layoutY="45.0" mnemonicParsing="false" onAction="#abrirperfil" text="perfil" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-            <Tab fx:id="Mensaje" text="Mensajes">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="mesaje" layoutX="136.0" layoutY="73.0" mnemonicParsing="false" onAction="#mensaje" text="Mensaje" />
-                     </children></AnchorPane>
-              </content>
-            </Tab>
-            <Tab fx:id="Sugeridos" text="Sugeridos">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Publicar">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </top>
-</BorderPane>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab text="Muro">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+    <Tab text="Perfil">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="45.0" layoutY="14.0" text="Datos del vendedor:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="43.0" prefHeight="3.0" prefWidth="417.0" />
+                  <TextField layoutX="45.0" layoutY="72.0" />
+                  <TextField layoutX="255.0" layoutY="72.0" />
+                  <TextField layoutX="45.0" layoutY="138.0" />
+                  <Label layoutX="45.0" layoutY="51.0" text="Nombre:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="255.0" layoutY="51.0" text="Apellidos:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="45.0" layoutY="117.0" text="Cedula:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="255.0" layoutY="136.0" />
+                  <Label layoutX="255.0" layoutY="115.0" text="Direccion:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="45.0" layoutY="204.0" />
+                  <Label layoutX="45.0" layoutY="183.0" text="Usuario:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="255.0" layoutY="202.0" />
+                  <Label layoutX="255.0" layoutY="181.0" text="Contraseña:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="239.0" prefHeight="7.0" prefWidth="419.0" />
+                  <Button layoutX="45.0" layoutY="295.0" mnemonicParsing="false" text="Actualizar" />
+                  <Label layoutX="50.0" layoutY="259.0" text="Actualizar datos:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Mensajes">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="489.0" prefWidth="511.0">
+               <children>
+                  <Label layoutX="128.0" layoutY="14.0" text="Chat:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="128.0" layoutY="45.0" prefHeight="279.0" prefWidth="344.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="326.0" />
+                    </content>
+                  </ScrollPane>
+                  <Button layoutX="401.0" layoutY="358.0" mnemonicParsing="false" text="Enviar" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Sugerencias">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

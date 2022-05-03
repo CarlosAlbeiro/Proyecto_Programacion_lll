@@ -18,11 +18,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.input.KeyEvent;
+import static javafx.scene.input.KeyCode.ENTER;
+
 
 
 /**
@@ -103,7 +108,7 @@ public class LoginController implements Initializable {
                  //iniciar la pantalla del lobbie
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setTitle("ERROR");
+                alert.setTitle("INFORMACION");
                 alert.setContentText("Bienvenido");
                 alert.showAndWait();
                 
@@ -137,5 +142,18 @@ public class LoginController implements Initializable {
             }
         }
     }
+//    @FXML
+//    void iniciar_seccion(KeyEvent event) {
+//    	KeyEvent keyEvent = null;
+//    	LoginController login = new LoginController();
+//		if(keyEvent.getCode() == ENTER) {
+//            // some action here
+//        
+//			login.Iniciar_Sesion(null);
+//		}
+//
+//    }Esta en prueba
+
+    
     
 }

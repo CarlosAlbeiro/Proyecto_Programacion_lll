@@ -28,7 +28,7 @@
                </image>
             </ImageView>
             <Button fx:id="bbt_registro" layoutX="85.0" layoutY="322.0" mnemonicParsing="false" onAction="#HacerRegistro" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #EC684D; -fx-background-radius: 100;" text="Registrarse" textFill="#f8f6f6" />
-            <Button fx:id="bbt_iniciarSesion" layoutX="83.0" layoutY="258.0" mnemonicParsing="false" onAction="#Iniciar_Sesion" style="-fx-background-color: #2b76f0; -fx-background-radius: 100;" text="Iniciar Sesion" textFill="#f5ecec" />
+            <Button fx:id="bbt_iniciarSesion" layoutX="83.0" layoutY="258.0" mnemonicParsing="false" onAction="#Iniciar_Sesion" onKeyTyped="#iniciar_seccion" style="-fx-background-color: #2b76f0; -fx-background-radius: 100;" text="Iniciar Sesion" textFill="#f5ecec" />
             <Button fx:id="btt_salir" layoutX="2.0" layoutY="1.0" minWidth="37.0" mnemonicParsing="false" onAction="#Salir" prefHeight="26.0" prefWidth="37.0" style="-fx-background-color: #ff0000; -fx-background-radius: 100;" text="X" textFill="#fcf8f8" />
             <ImageView fitHeight="341.0" fitWidth="341.0" layoutX="245.0" layoutY="30.0" pickOnBounds="true">
                <image>
