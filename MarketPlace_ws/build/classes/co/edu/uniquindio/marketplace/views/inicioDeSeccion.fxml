@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="Muro">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="600.0">
+               <children>
+                  <TableView layoutX="14.0" layoutY="39.0" prefHeight="360.0" prefWidth="299.0">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="Nombre " />
+                        <TableColumn prefWidth="75.0" text="Codigo" />
+                        <TableColumn prefWidth="75.0" text="Categoria" />
+                        <TableColumn prefWidth="75.0" text="Precio" />
+                     </columns>
+                  </TableView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="316.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="362.0" layoutY="219.0" mnemonicParsing="false" text="vender" />
+                  <Label layoutX="325.0" layoutY="177.0" text="Cantidad:" />
+                  <TextField layoutX="376.0" layoutY="173.0" prefHeight="25.0" prefWidth="25.0" />
+                  <ComboBox layoutX="441.0" layoutY="173.0" prefWidth="150.0" promptText="Estado" />
+               </children>
+            </AnchorPane>
+         </content>
     </Tab>
     <Tab text="Perfil">
       <content>
@@ -73,7 +93,7 @@
                </children></AnchorPane>
       </content>
     </Tab>
-      <Tab text="Mensajes">
+      <Tab text="Contactos">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="489.0" prefWidth="511.0">
                <children>
@@ -93,7 +113,30 @@
       </Tab>
       <Tab text="Sugerencias">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="42.0" layoutY="124.0" mnemonicParsing="false" text="Buscar" />
+                  <Button layoutX="124.0" layoutY="124.0" mnemonicParsing="false" text="Agregar " />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Inicio">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="446.0" prefWidth="563.0">
+                     <columns>
+                        <TableColumn prefWidth="117.0" text="Nombre Vendedor " />
+                        <TableColumn minWidth="2.0" prefWidth="56.0" text="Codigo" />
+                        <TableColumn minWidth="0.0" prefWidth="14.0" text="Categori" />
+                        <TableColumn prefWidth="72.0" text="Precio" />
+                        <TableColumn prefWidth="116.0" text="Comentario" />
+                        <TableColumn prefWidth="55.0" text="Reaccion" />
+                        <TableColumn prefWidth="75.0" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
         </content>
       </Tab>
   </tabs>
