@@ -1,14 +1,11 @@
 package co.edu.uniquindio.marketplace.controllers;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import co.edu.uniquindio.marketplace.model.MarketPlace;
 
 
 public class SingletonMarket {
 
-	MarketPlace market;
+	MarketPlace market = new MarketPlace();
 
 
 	//------------------------------  Singleton ------------------------------------------------

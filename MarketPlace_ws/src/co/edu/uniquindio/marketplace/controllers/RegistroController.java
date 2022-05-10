@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author 31285
+ * @author Ruben Garrido
  */
 public class RegistroController implements Initializable {
 

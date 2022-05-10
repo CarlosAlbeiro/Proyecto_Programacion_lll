@@ -1,6 +1,5 @@
 package co.edu.uniquindio.marketplace.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
@@ -29,15 +28,8 @@ public class InicioDeSeccionController {
     @FXML
     private Button perfil;
 
-    @FXML
-    void abrirperfil(ActionEvent event) {
+	
 
-    }
-
-    @FXML
-    void mensaje(ActionEvent event) {
-
-    }
-
+   
 	
 }
