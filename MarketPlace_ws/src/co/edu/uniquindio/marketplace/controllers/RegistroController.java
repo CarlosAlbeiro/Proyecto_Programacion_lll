@@ -47,6 +47,7 @@ public class RegistroController implements Initializable {
     @FXML
     private Button But_volver;
     MarketPlace market = new MarketPlace();
+    SingletonMarket singleton= new SingletonMarket(); 
     @FXML
     private Button But_regis;
     
@@ -111,9 +112,11 @@ public class RegistroController implements Initializable {
           
         }else{
             if (clave.equals(clave2)){
+            	singleton.market.registrarVendedor(nombre, apellido, telefono, cedula, correo, clave);
                 market.registrarVendedor(nombre, apellido,telefono, cedula,correo, clave);
-                if(market.registrarVendedor(nombre, apellido,telefono, cedula, correo, clave)){
-                    String confirmacion=market.ultimoVendedor();
+                if(singleton.market.registrarVendedor(nombre, apellido, telefono, cedula, correo, clave)){
+                	String confirmacion=singleton.market.ultimoVendedor();
+                	//String confirmacion=market.ultimoVendedor();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setTitle("INFORMACION");

@@ -17,6 +17,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -30,7 +32,8 @@ import javafx.stage.Stage;
  */
 public class LoginController implements Initializable {
 
-    @FXML
+    private static final KeyCode ENTER = null;
+	@FXML
     private Button btt_salir;
     @FXML
     private Button bbt_registro;
@@ -41,7 +44,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField texf_usuario;
     MarketPlace market = new MarketPlace();
-
+    SingletonMarket singleton= new SingletonMarket(); 
 
     /**
      * Initializes the controller class.
@@ -89,16 +92,17 @@ public class LoginController implements Initializable {
         String clave = this.pass_contr.getText();
         String correo = this.texf_usuario.getText();
         if(pass_contr.getText().isEmpty()||texf_usuario.getText().isEmpty()){
-             // la alerta de guardado
+            //la alerta de guardado
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("ERROR");
-            alert.setContentText("Por favor diligencie todo los campos");
+            alert.setContentText("Por favor diligencie todos los campos");
             alert.showAndWait();
         }else{
-            boolean confi= market.loginVendedor(clave, correo);
+        	boolean confi= singleton.market.loginVendedor(clave, correo);
+            //boolean confi= market.loginVendedor(clave, correo);
             if(confi==true){
-                 //iniciar la pantalla del lobbie
+                //iniciar la pantalla del lobbie
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setTitle("INFORMACION");
@@ -135,17 +139,17 @@ public class LoginController implements Initializable {
             }
         }
     }
-//    @FXML
-//    void iniciar_seccion(KeyEvent event) {
-//    	KeyEvent keyEvent = null;
-//    	LoginController login = new LoginController();
-//		if(keyEvent.getCode() == ENTER) {
-//            // some action here
-//        
-//			login.Iniciar_Sesion(null);
-//		}
-//
-//    }Esta en prueba
+    @FXML
+   void iniciar_seccion(KeyEvent event) {
+    	KeyEvent keyEvent = null;
+    	LoginController login = new LoginController();
+		if(keyEvent.getCode() == ENTER) {
+            // some action here
+        
+			login.Iniciar_Sesion(null);
+		}
+
+    }//Esta en prueba
 
     
     
