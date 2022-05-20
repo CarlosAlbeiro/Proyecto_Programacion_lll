@@ -1,6 +1,10 @@
 package co.edu.uniquindio.marketplace.controllers;
 
+import java.io.IOException;
+
+import co.edu.uniquindio.marketplace.exceptions.VendodoresException;
 import co.edu.uniquindio.marketplace.model.MarketPlace;
+import co.edu.uniquindio.marketplace.model.Vendedores;
 import co.edu.uniquindio.marketplace.persistencia.Persistencia;
 
 
@@ -59,34 +63,13 @@ public class SingletonMarket {
 
 	private void iniciarSalvarDatosPrueba() {
 
-		inicializarDatos();
-
-		try {
-
-			Persistencia.guardarVendedor(getMarket().listaVendedores);
-			Persistencia.guardarClientes(getBanco().getListaClientes());
-
-			//Persistencia.cargarDatosArchivos(getBanco());
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 	}
 
 
 	private void cargarDatosDesdeArchivos() {
 
-		market = new MarketPlace();
-
-		try {
-
-			Persistencia.cargarDatosArchivos(getBanco());
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 //	public void cargarResourceBinario() {
@@ -115,121 +98,27 @@ public class SingletonMarket {
 
 //
 	private void inicializarDatos() {
-
-		banco = new Banco();
-
-		Cliente cliente = new Cliente();
-		cliente.setNombre("juan");
-		cliente.setApellido("arias");
-		cliente.setCedula("125454");
-		cliente.setDireccion("Armenia");
-		cliente.setCorreo("uni1@");
-		cliente.setFechaNacimiento("12454");
-		cliente.setTelefono("125444");
-
-		banco.getListaClientes().add(cliente);
-
-		cliente = new Cliente();
-		cliente.setNombre("Pedro");
-		cliente.setApellido("Perez");
-		cliente.setCedula("77787");
-		cliente.setDireccion("Pererira");
-		cliente.setCorreo("uni2@");
-		cliente.setFechaNacimiento("12454");
-		cliente.setTelefono("125444");
-
-		banco.getListaClientes().add(cliente);
-
-		cliente = new Cliente();
-		cliente.setNombre("Alberto");
-		cliente.setApellido("Arias");
-		cliente.setCedula("12555");
-		cliente.setDireccion("Pererira");
-		cliente.setCorreo("uni3@");
-		cliente.setFechaNacimiento("12454");
-		cliente.setTelefono("125444");
-
-		banco.getListaClientes().add(cliente);
-
-
-		Empleado empleado = new Empleado();
-		empleado.setNombre("juan");
-		empleado.setApellido("arias");
-		empleado.setCedula("125454");
-		empleado.setFechaNacimiento("12454");
-		banco.getListaEmpleados().add(empleado);
-
-
-		empleado = new Empleado();
-		empleado.setNombre("Ana");
-		empleado.setApellido("alzate");
-		empleado.setCedula("125454");
-		empleado.setFechaNacimiento("12454");
-		banco.getListaEmpleados().add(empleado);
-
-		empleado = new Empleado();
-		empleado.setNombre("Pedro");
-		empleado.setApellido("perez");
-		empleado.setCedula("125454");
-		empleado.setFechaNacimiento("12454");
-		banco.getListaEmpleados().add(empleado);
-
-		System.out.println("Banco inicializado "+banco );
+//
+//		market = new MarketPlace();
+//
+//		Vendedores vendedores = new Vendedores();
+//		vendedores.setNombre("juan");
+//		vendedores.setApellido("arias");
+//		vendedores.setCedula("125454");
+//		vendedores.setClave("Arme");
+//		vendedores.setCorreo("uni1@");
+//		vendedores.setTelefono("125444");
+//
+//		market.getListaVendedores().add(vendedores);
+//
+//		
+//
+//		System.out.println("Banco inicializado "+market );
 
 	}
 
 	
-
-//
-	@Override
-	public Empleado crearEmpleado(String nombre, String apellido, String cedula, String fechaNacimiento) {
-
-
-		Empleado empleado = null;
-
-		try {
-			empleado = getBanco().crearEmpleado(nombre, apellido, cedula, fechaNacimiento);
-		} catch (EmpleadoException e) {
-			e.getMessage();
-		}
-
-		return empleado;
-
-	}
-
-	public MarketPlace getMarket() {
-		return market;
-	}
-
-	public void setMarket(MarketPlace market) {
-		this.market = market;
-	}
-
-//	@Override
-//	public boolean actualizarEmpleado(String cedulaActual, String nombre, String apellido, String cedula, String fechaNacimiento) {
-//
-//		return getBanco().actualizarEmpleado(cedulaActual, nombre, apellido, cedula, fechaNacimiento);
-//	}
-//
-//	@Override
-//	public Boolean eliminarEmpleado(String cedula) {
-//
-//		boolean flagEmpleadoExiste = false;
-//
-//		try {
-//			flagEmpleadoExiste = getBanco().eliminarEmpleado(cedula);
-//		} catch (EmpleadoException e) {
-//			// TODO Auto-generated catch block
-//			e.getMessage();
-//		}
-//		return flagEmpleadoExiste;
-//	}
-
-//	@Override
-//	public Empleado obtenerEmpleado(String cedula) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	
 //
 //	@Override
 //	public ArrayList<Empleado> obtenerEmpleados() {

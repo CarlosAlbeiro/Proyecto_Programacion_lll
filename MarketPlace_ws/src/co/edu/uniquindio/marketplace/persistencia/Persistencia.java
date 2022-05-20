@@ -8,48 +8,75 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import co.edu.uniquindio.marketplace.exceptions.VendodoresException;
 import co.edu.uniquindio.marketplace.model.MarketPlace;
+import co.edu.uniquindio.marketplace.model.Vendedores;
 
 
 
 
 public class Persistencia {
 
-	public static final String RUTA_ARCHIVO_CLIENTES = "src/resources/vendedores.txt";
-	public static final String RUTA_ARCHIVO_EMPLEADOS = "src/resources/archivoEmpleados.txt";
+	public static final String RUTA_ARCHIVO_VENDEDORES = "src/resources/vendedores.txt";
 	public static final String RUTA_ARCHIVO_USUARIOS = "src/resources/archivoUsuarios.txt";
 	public static final String RUTA_ARCHIVO_LOG = "src/resources/BancoLog.txt";
 	public static final String RUTA_ARCHIVO_OBJETOS = "src/resources/archivoObjetos.txt";
-	public static final String RUTA_ARCHIVO_MODELO_BANCO_BINARIO = "src/resources/model.dat";
-	public static final String RUTA_ARCHIVO_MODELO_BANCO_XML = "src/resources/model.xml";
+	public static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_BINARIO = "src/resources/model.dat";
+	public static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_XML = "src/resources/model.xml";
 
+	MarketPlace market = new MarketPlace();
 
 
 	public static void cargarDatosArchivos(MarketPlace market) throws FileNotFoundException, IOException {
-		//cargar archivo de clientes
-		ArrayList<Vendedor> vendedoresCargados = cargarVendedores();
+		//cargar archivo de vendedores
+		ArrayList<Vendedores> vendedoresCargados = cargarVendedores(null);
 
-		if(vendedoresCargados.size() > 0)
-			market.get.addAll(clientesCargados);
+		
+
+//		//cargar archivos empleados
+//		ArrayList<Empleado> empleadosCargados = cargarEmpleados();
+//
+//		if(empleadosCargados.size() > 0)
+//			banco.getListaEmpleados().addAll(empleadosCargados);
+//
+//		//cargar archivo objetos
+//
+//		//cargar archivo empleados
+//
+//		//cargar archivo prestamo
+
+	}
 
 
-		//cargar archivos empleados
-		ArrayList<Empleado> empleadosCargados = cargarEmpleados();
 
-		if(empleadosCargados.size() > 0)
-			banco.getListaEmpleados().addAll(empleadosCargados);
 
-		//cargar archivo objetos
 
-		//cargar archivo empleados
+	private static ArrayList<Vendedores> cargarVendedores(String rutaArchivoUsuarios) throws IOException {
+		ArrayList<Vendedores> vendedores =new ArrayList<Vendedores>();
 
-		//cargar archivo prestamo
+		ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_VENDEDORES);
+		String linea="";
 
+		for (int i = 0; i < contenido.size(); i++)
+		{
+			linea = contenido.get(i);
+			Vendedores vendedor = new Vendedores();
+			vendedor.setNombre(linea.split(",")[0]);
+			vendedor.setApellido(linea.split(",")[1]);
+			vendedor.setCedula(linea.split(",")[2]);
+			vendedor.setCorreo(linea.split("")[3]);
+			vendedor.setClave(linea.split("")[4]);
+			vendedor.setTelefono(linea.split("")[5]);
+			
+			vendedores.add(vendedor);
+		}
+		return vendedores;
 	}
 
 
@@ -62,18 +89,18 @@ public class Persistencia {
 	 * @param ruta
 	 * @throws IOException
 	 */
-	public static void guardarClientes(ArrayList<Cliente> listaClientes) throws IOException {
-		// TODO Auto-generated method stub
-		String contenido = "";
-
-		for(Cliente cliente:listaClientes)
-		{
-			contenido+= cliente.getNombre()+","+cliente.getApellido()+","+cliente.getCedula()+","+cliente.getDireccion()
-		     +","+cliente.getCorreo()+","+cliente.getFechaNacimiento()+","+cliente.getTelefono()+"\n";
-		}
-		ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_CLIENTES, contenido, false);
-
-	}
+//	public static void guardarClientes(ArrayList<Cliente> listaClientes) throws IOException {
+//		// TODO Auto-generated method stub
+//		String contenido = "";
+//
+//		for(Cliente cliente:listaClientes)
+//		{
+//			contenido+= cliente.getNombre()+","+cliente.getApellido()+","+cliente.getCedula()+","+cliente.getDireccion()
+//		     +","+cliente.getCorreo()+","+cliente.getFechaNacimiento()+","+cliente.getTelefono()+"\n";
+//		}
+//		ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_CLIENTES, contenido, false);
+//
+//	}
 
 
 	public static void guardarVendedor(ArrayList<Vendedores> listaVendedores) throws IOException {
@@ -83,9 +110,9 @@ public class Persistencia {
 
 		for(Vendedores vendedor:listaVendedores)
 		{
-			contenido+= vendedor+","+empleado.getApellido()+","+empleado.getCedula()+","+empleado.getFechaNacimiento()+"\n";
+			contenido+= vendedor.getNombre()+","+vendedor.getApellido()+","+vendedor.getCedula()+","+vendedor.getCorreo()+","+vendedor.getClave()+","+vendedor.getTelefono()+"\n";
 		}
-		ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_EMPLEADOS, contenido, false);
+		ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_VENDEDORES, contenido, false);
 	}
  
 
@@ -100,52 +127,27 @@ public class Persistencia {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public static ArrayList<Cliente> cargarClientes() throws FileNotFoundException, IOException
+	public static ArrayList<Vendedores> cargarClientes() throws FileNotFoundException, IOException
 	{
-		ArrayList<Cliente> clientes =new ArrayList<Cliente>();
+		ArrayList<Vendedores> vendedores =new ArrayList<Vendedores>();
 
-		ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_CLIENTES);
+		ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_VENDEDORES);
 		String linea="";
 
 		for (int i = 0; i < contenido.size(); i++)
 		{
 			linea = contenido.get(i);
-			Cliente cliente = new Cliente();
-			cliente.setNombre(linea.split(",")[0]);
-			cliente.setApellido(linea.split(",")[1]);
-			cliente.setCedula(linea.split(",")[2]);
-			cliente.setDireccion(linea.split(",")[3]);
-			cliente.setCorreo(linea.split(",")[4]);
-			cliente.setFechaNacimiento(linea.split(",")[5]);
-			cliente.setTelefono(linea.split(",")[6]);
-			clientes.add(cliente);
+			Vendedores vendedor = new Vendedores();
+			vendedor.setNombre(linea.split(",")[0]);
+			vendedor.setApellido(linea.split(",")[1]);
+			vendedor.setCedula(linea.split(",")[2]);
+			vendedor.setCorreo(linea.split(",")[3] );
+			vendedor.setClave(linea.split(",")[4]);
+			vendedor.setTelefono(linea.split(",")[5]);
+			vendedores.add(vendedor);
 		}
-		return clientes;
+		return vendedores;
 	}
-
-
-
-	private static ArrayList<Empleado> cargarEmpleados() throws IOException {
-
-		ArrayList<Empleado> empleados =new ArrayList<Empleado>();
-
-		ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_EMPLEADOS);
-		String linea="";
-
-		for (int i = 0; i < contenido.size(); i++)
-		{
-			linea = contenido.get(i);
-			Empleado empleado = new Empleado();
-			empleado.setNombre(linea.split(",")[0]);
-			empleado.setApellido(linea.split(",")[1]);
-			empleado.setCedula(linea.split(",")[2]);
-			empleado.setFechaNacimiento(linea.split(",")[3]);
-			empleados.add(empleado);
-		}
-		return empleados;
-	}
-
-
 
 
 	public static void guardaRegistroLog(String mensajeLog, int nivel, String accion)
@@ -155,32 +157,32 @@ public class Persistencia {
 	}
 
 
-	public static boolean iniciarSesion(String usuario, String contrasenia) throws FileNotFoundException, IOException, UsuarioExcepcion {
+	public static boolean iniciarSesion(String usuario, String contrasenia) throws FileNotFoundException, IOException, VendodoresException {
 
 		if(validarUsuario(usuario,contrasenia)) {
 			return true;
 		}else {
-			throw new UsuarioExcepcion("Usuario no existe");
+			throw new VendodoresException();
 		}
 
 	}
 
-	private static boolean validarUsuario(String usuario, String contrasenia) throws FileNotFoundException, IOException
+	private static boolean validarUsuario(String correo, String clave) throws FileNotFoundException, IOException
 	{
-		ArrayList<Usuario> usuarios = Persistencia.cargarUsuarios(RUTA_ARCHIVO_USUARIOS);
+		ArrayList<Vendedores> vendedores = Persistencia.cargarVendedores(RUTA_ARCHIVO_USUARIOS);
 
-		for (int indiceUsuario = 0; indiceUsuario < usuarios.size(); indiceUsuario++)
+		for (int indiceUsuario = 0; indiceUsuario < vendedores.size(); indiceUsuario++)
 		{
-			Usuario usuarioAux = usuarios.get(indiceUsuario);
-			if(usuarioAux.getUsuario().equalsIgnoreCase(usuario) && usuarioAux.getContrasenia().equalsIgnoreCase(contrasenia)) {
+			Vendedores usuarioAux = vendedores.get(indiceUsuario);
+			if(usuarioAux.getCorreo().equalsIgnoreCase(correo) && usuarioAux.getClave().equalsIgnoreCase(clave)) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public static ArrayList<Usuario> cargarUsuarios(String ruta) throws FileNotFoundException, IOException {
-		ArrayList<Usuario> usuarios =new ArrayList<Usuario>();
+	public static ArrayList<Vendedores> cargarUsuarios(String ruta) throws FileNotFoundException, IOException {
+		ArrayList<Vendedores> vendedores =new ArrayList<Vendedores>();
 
 		ArrayList<String> contenido = ArchivoUtil.leerArchivo(ruta);
 		String linea="";
@@ -188,13 +190,13 @@ public class Persistencia {
 		for (int i = 0; i < contenido.size(); i++) {
 			linea = contenido.get(i);
 
-			Usuario usuario = new Usuario();
-			usuario.setUsuario(linea.split(",")[0]);
-			usuario.setContrasenia(linea.split(",")[1]);
+			Vendedores vendedor = new Vendedores();
+			vendedor.setCorreo(linea.split("")[0]);
+			vendedor.setClave(linea.split("")[1]);
 
-			usuarios.add(usuario);
+			Vendedores.add(vendedor);
 		}
-		return usuarios;
+		return vendedores;
 	}
 
 
@@ -207,15 +209,15 @@ public class Persistencia {
 	 * @throws IOException
 	 */
 
-	public static void guardarObjetos(ArrayList<Cliente> listaClientes, String ruta) throws IOException  {
-		String contenido = "";
-
-		for(Cliente clienteAux:listaClientes) {
-			contenido+= clienteAux.getNombre()+","+clienteAux.getApellido()+","+clienteAux.getCedula()+clienteAux.getDireccion()
-					     +","+clienteAux.getCorreo()+","+clienteAux.getFechaNacimiento()+","+clienteAux.getTelefono()+"\n";
-		}
-		ArchivoUtil.guardarArchivo(ruta, contenido, true);
-	}
+//	public static void guardarObjetos(ArrayList<Cliente> listaClientes, String ruta) throws IOException  {
+//		String contenido = "";
+//
+//		for(Cliente clienteAux:listaClientes) {
+//			contenido+= clienteAux.getNombre()+","+clienteAux.getApellido()+","+clienteAux.getCedula()+clienteAux.getDireccion()
+//					     +","+clienteAux.getCorreo()+","+clienteAux.getFechaNacimiento()+","+clienteAux.getTelefono()+"\n";
+//		}
+//		ArchivoUtil.guardarArchivo(ruta, contenido, true);
+//	}
 
 
 
@@ -223,58 +225,58 @@ public class Persistencia {
 
 	//------------------------------------SERIALIZACIÓN  y XML
 
+//
+//	public static Banco cargarRecursoBancoBinario() {
+//
+//		Banco banco = null;
+//
+//		try {
+//			banco = (Banco)ArchivoUtil.cargarRecursoSerializado(RUTA_ARCHIVO_MODELO_BANCO_BINARIO);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return banco;
+//	}
+//
+//	public static void guardarRecursoBancoBinario(Banco banco) {
+//
+//		try {
+//			ArchivoUtil.salvarRecursoSerializado(RUTA_ARCHIVO_MODELO_BANCO_BINARIO, banco);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+//
 
-	public static Banco cargarRecursoBancoBinario() {
-
-		Banco banco = null;
-
-		try {
-			banco = (Banco)ArchivoUtil.cargarRecursoSerializado(RUTA_ARCHIVO_MODELO_BANCO_BINARIO);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return banco;
-	}
-
-	public static void guardarRecursoBancoBinario(Banco banco) {
-
-		try {
-			ArchivoUtil.salvarRecursoSerializado(RUTA_ARCHIVO_MODELO_BANCO_BINARIO, banco);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-
-	public static Banco cargarRecursoBancoXML() {
-
-		Banco banco = null;
-
-		try {
-			banco = (Banco)ArchivoUtil.cargarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_BANCO_XML);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return banco;
-
-	}
-
-
-
-	public static void guardarRecursoBancoXML(Banco banco) {
-
-		try {
-			ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_BANCO_XML, banco);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-
+//	public static Banco cargarRecursoBancoXML() {
+//
+//		Banco banco = null;
+//
+//		try {
+//			banco = (Banco)ArchivoUtil.cargarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_BANCO_XML);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return banco;
+//
+//	}
+//
+//
+//
+//	public static void guardarRecursoBancoXML(Banco banco) {
+//
+//		try {
+//			ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_BANCO_XML, banco);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+//
+//
 
 
 

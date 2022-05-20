@@ -11,30 +11,30 @@ import java.util.ArrayList;
  *
  * @author Catalina
  */
-class Vendedores {
+ public class Vendedores {
     private String nombre;
     private String apellido;
-    private String telefono;
     private String cedula;
     private String clave;
     private String correo;
+    private String telefono;
     private Comentario comentario;
     private Mensajes mensajes;
     public  ArrayList<Productos> listaProductos;
     public  ArrayList<Mensajes> listaMensaje;
 
-    public Vendedores(String nombre,String apellido,String telefono,String cedula, String correo,String clave) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.cedula = cedula;
-        this.correo = correo;
-        this.clave=clave;
-       
-        
-    }
+   
 
-    public String getNombre() {
+    public Vendedores() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Vendedores(String nombre, String apellido, String telefono, String cedula, String correo,
+			String clave) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getNombre() {
         return nombre;
     }
 
@@ -117,6 +117,11 @@ class Vendedores {
     public void setListaMensaje(ArrayList<Mensajes> listaMensaje) {
         this.listaMensaje = listaMensaje;
     }
+
+	public static void add(Vendedores vendedor) {
+		// TODO Auto-generated method stub
+		
+	}
 
    
 }

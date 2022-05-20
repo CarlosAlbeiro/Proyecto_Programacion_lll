@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Catalina
  */
-class Productos {
+ public class Productos {
     private String nombre;
     private String codigo;
     private String imagen;

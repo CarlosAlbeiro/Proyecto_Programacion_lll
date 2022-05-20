@@ -9,7 +9,7 @@ import java.time.LocalDate;
  *
  * @author Catalina
  */
-class Comentario {
+    public class Comentario {
     private LocalDate  fecha;
     private String contenido;
     private Vendedores vendedor ;
@@ -43,5 +43,12 @@ class Comentario {
     public void setVendedor(Vendedores vendedor) {
         this.vendedor = vendedor;
     }
+
+	@Override
+	public String toString() {
+		return "Comentario [fecha=" + fecha + ", contenido=" + contenido + ", vendedor=" + vendedor + "]";
+	}
+    
+    
     
 }

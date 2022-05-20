@@ -60,6 +60,7 @@ public class RegistroController implements Initializable {
         // TODO
     }    
 
+    
 
     @FXML
     private void eventoVolver(ActionEvent event) {
@@ -91,54 +92,14 @@ public class RegistroController implements Initializable {
     @FXML
     private void eventoRegistrar(ActionEvent event) {
           
-        String nombre = this.Tex_nombre.getText();
-        String apellido = this.Tex_apellidos.getText();
-        String telefono=this.Tex_telefono.getText();
-        String cedula = this.Tex_cedula.getText();
-        String correo = this.Tex_correo.getText();
-        String clave=this.Tex_contrase.getText();
-        String clave2=this.Tex_confirmarContra.getText();
-        
-        if(Tex_nombre.getText().isEmpty() || Tex_apellidos.getText().isEmpty()||
-                Tex_telefono.getText().isEmpty()||Tex_cedula.getText().isEmpty()|| Tex_correo.getText().isEmpty()||
-                Tex_contrase.getText().isEmpty()||Tex_confirmarContra.getText().isEmpty()){
-            
-             // la alerta de guardado
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("ERROR");
-            alert.setContentText("Por favor diligencie todo los campos");
-            alert.showAndWait();
-          
-        }else{
-            if (clave.equals(clave2)){
-            	singleton.market.registrarVendedor(nombre, apellido, telefono, cedula, correo, clave);
-                market.registrarVendedor(nombre, apellido,telefono, cedula,correo, clave);
-                if(singleton.market.registrarVendedor(nombre, apellido, telefono, cedula, correo, clave)){
-                	String confirmacion=singleton.market.ultimoVendedor();
-                	//String confirmacion=market.ultimoVendedor();
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setTitle("INFORMACION");
-                    alert.setContentText("Se ha añadido correctamente:\n "+confirmacion);
-                    alert.showAndWait();
-                }else{
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText(null);
-                    alert.setTitle("ERROR");
-                    alert.setContentText("No se a podido realizar el registro");
-                    alert.showAndWait();
-                }
+        String nombre   =   this.Tex_nombre.getText();
+        String apellido =   this.Tex_apellidos.getText();
+        String telefono =   this.Tex_telefono.getText();
+        String cedula   =   this.Tex_cedula.getText();
+        String correo   =   this.Tex_correo.getText();
+        String clave    =   this.Tex_contrase.getText();
+        String confirClave   =   this.Tex_confirmarContra.getText();
 
-            }else{
-              
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setTitle("ERROR");
-                alert.setContentText("Las claves no coinciden");
-                alert.showAndWait();
-            }
-          }
     }
    /**Este metodo permite abrir y cerras las ventanas.
     * Para que solo aparezca una ventana en pantalla*/
