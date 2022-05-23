@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package co.edu.uniquindio.marketplace.model;
+import java.io.Serializable;
 import java.time.LocalDate;
 /**
  *
  * @author Catalina
  */
-    public class Comentario {
+    public class Comentario implements Serializable {
     private LocalDate  fecha;
     private String contenido;
     private Vendedores vendedor ;

@@ -5,13 +5,14 @@
  */
 package co.edu.uniquindio.marketplace.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Catalina
  */
- public class Vendedores {
+ public class Vendedores implements Serializable {
     private String nombre;
     private String apellido;
     private String cedula;

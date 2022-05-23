@@ -5,13 +5,14 @@
  */
 package co.edu.uniquindio.marketplace.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Catalina
  */
- public class Productos {
+ public class Productos implements Serializable {
     private String nombre;
     private String codigo;
     private String imagen;
