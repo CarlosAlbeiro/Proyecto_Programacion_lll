@@ -5,15 +5,16 @@
  */
 package co.edu.uniquindio.marketplace.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Catalina
  */
-public class MarketPlace {
+public class MarketPlace  {
 	
-    public  ArrayList<Vendedores> listaVendedores;
+    public  ArrayList<Vendedores> listaVendedores = new ArrayList<>();
 	
     
     public MarketPlace(){
@@ -53,6 +54,13 @@ public class MarketPlace {
 
 	public void setListaVendedores(ArrayList<Vendedores> listaVendedores) {
 		this.listaVendedores = listaVendedores;
+	}
+
+	public boolean registrarVendedores(Vendedores vendedor) {
+		
+		getListaVendedores().add(vendedor);
+		
+		return true;
 	}
 
 	

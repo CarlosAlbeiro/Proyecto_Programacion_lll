@@ -1,18 +1,10 @@
 package co.edu.uniquindio.marketplace.persistencia;
 
-import java.beans.XMLEncoder;
-import java.io.FileInputStream;
+
+
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 import co.edu.uniquindio.marketplace.exceptions.VendodoresException;
 import co.edu.uniquindio.marketplace.model.MarketPlace;
@@ -25,7 +17,7 @@ public class Persistencia {
 
 	public static final String RUTA_ARCHIVO_VENDEDORES = "src/resources/vendedores.txt";
 	public static final String RUTA_ARCHIVO_USUARIOS = "src/resources/usuarios.txt";
-	public static final String RUTA_ARCHIVO_LOG = "src/resources/BancoLog.txt";
+	public static final String RUTA_ARCHIVO_LOG = "src/resources/MarketPlaceLog.txt";
 	public static final String RUTA_ARCHIVO_OBJETOS = "src/resources/archivoObjetos.txt";
 	public static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_BINARIO = "src/resources/model.dat";
 	public static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_XML = "src/resources/model.xml";
@@ -105,12 +97,12 @@ public class Persistencia {
 
 	public static void guardarVendedor(ArrayList<Vendedores> listaVendedores) throws IOException {
 
-		// TODO Auto-generated method stub
+	
 		String contenido = "";
 
 		for(Vendedores vendedor:listaVendedores)
 		{
-			contenido+= vendedor.getNombre()+","+vendedor.getApellido()+","+vendedor.getCedula()+","+vendedor.getCorreo()+","+vendedor.getClave()+","+vendedor.getTelefono()+"\n";
+			contenido+= vendedor.getNombre()+"#"+vendedor.getApellido()+"#"+vendedor.getCedula()+"#"+vendedor.getCorreo()+"#"+vendedor.getClave()+"#"+vendedor.getTelefono()+"\n";
 		}
 		ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_VENDEDORES, contenido, false);
 	}

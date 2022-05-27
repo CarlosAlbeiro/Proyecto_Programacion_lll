@@ -114,7 +114,39 @@ public class SingletonMarket {
 //		
 //
 //		System.out.println("Banco inicializado "+market );
+		
 
+	}
+
+	
+	public MarketPlace getMarket() {
+		return market;
+	}
+
+	public void setMarket(MarketPlace market) {
+		this.market = market;
+	}
+
+	public boolean registrarVendedores(String nombre, String apellido, String telefono, String cedula, String correo,
+		String clave, String confirClave) throws IOException   {
+		boolean creado = false;
+		Vendedores vendedor = new Vendedores();
+		vendedor.setNombre(nombre);
+		vendedor.setApellido(apellido);
+		vendedor.setCedula(cedula);
+		vendedor.setCorreo(correo);
+		vendedor.setClave(clave);
+		vendedor.setConfiClave(confirClave);
+		vendedor.setTelefono(telefono);
+		
+		creado = market.registrarVendedores(vendedor);
+		
+		if (creado) {
+			
+				Persistencia.guardarVendedor(market.getListaVendedores());
+			
+		}
+		return creado;
 	}
 
 	

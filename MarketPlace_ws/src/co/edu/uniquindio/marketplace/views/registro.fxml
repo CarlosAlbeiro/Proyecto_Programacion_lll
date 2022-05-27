@@ -28,7 +28,7 @@
          </font>
       </Label>
       <TextField fx:id="Tex_telefono" layoutX="53.0" layoutY="390.0" />
-      <TextField fx:id="Tex_contraseña" layoutX="53.0" layoutY="453.0" />
+      <TextField fx:id="Tex_contrase" layoutX="53.0" layoutY="453.0" />
       <Label layoutX="53.0" layoutY="489.0" text="Confirmar Contraseña:" />
       <TextField fx:id="Tex_confirmarContra" layoutX="54.0" layoutY="516.0" />
       <Label layoutX="55.0" layoutY="365.0" text="Telefono:" />

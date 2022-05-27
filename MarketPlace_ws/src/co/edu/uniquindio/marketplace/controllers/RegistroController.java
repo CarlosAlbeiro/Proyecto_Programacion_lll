@@ -1,4 +1,3 @@
-
 package co.edu.uniquindio.marketplace.controllers;
 
 
@@ -8,6 +7,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,12 +48,11 @@ public class RegistroController implements Initializable {
     private TextField Tex_confirmarContra;
     @FXML
     private Button But_volver;
-    MarketPlace market = new MarketPlace();
-    SingletonMarket singleton= new SingletonMarket(); 
     @FXML
     private Button But_regis;
     
 
+   
     /**
      * Initializes the controller class.
      */
@@ -90,8 +91,9 @@ public class RegistroController implements Initializable {
     }
 
     @FXML
-    private void eventoRegistrar(ActionEvent event) {
-          
+    private void eventoRegistrar(ActionEvent event)   {
+        
+    	// capturar datos   
         String nombre   =   this.Tex_nombre.getText();
         String apellido =   this.Tex_apellidos.getText();
         String telefono =   this.Tex_telefono.getText();
@@ -99,7 +101,16 @@ public class RegistroController implements Initializable {
         String correo   =   this.Tex_correo.getText();
         String clave    =   this.Tex_contrase.getText();
         String confirClave   =   this.Tex_confirmarContra.getText();
-
+        
+        SingletonMarket singleton= new SingletonMarket().getInstance(); 
+        try {
+			singleton.registrarVendedores(nombre,apellido,telefono,cedula,correo,clave,confirClave);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "El sistema se esta actualizando");
+		}
+		
+			
     }
    /**Este metodo permite abrir y cerras las ventanas.
     * Para que solo aparezca una ventana en pantalla*/

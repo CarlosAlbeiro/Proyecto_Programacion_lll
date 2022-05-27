@@ -12,11 +12,12 @@ import java.util.ArrayList;
  *
  * @author Catalina
  */
- public class Vendedores implements Serializable {
+ public class Vendedores {
     private String nombre;
     private String apellido;
     private String cedula;
     private String clave;
+    private String confiClave;
     private String correo;
     private String telefono;
     private Comentario comentario;
@@ -27,11 +28,6 @@ import java.util.ArrayList;
    
 
     public Vendedores() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Vendedores(String nombre, String apellido, String telefono, String cedula, String correo,
-			String clave) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -87,7 +83,16 @@ import java.util.ArrayList;
         this.clave = clave;
     }
 
-    public Comentario getComentario() {
+    
+    public String getConfiClave() {
+		return confiClave;
+	}
+
+	public void setConfiClave(String confiClave) {
+		this.confiClave = confiClave;
+	}
+
+	public Comentario getComentario() {
         return comentario;
     }
 
@@ -103,6 +108,7 @@ import java.util.ArrayList;
         this.mensajes = mensajes;
     }
 
+    
     public ArrayList<Productos> getListaProductos() {
         return listaProductos;
     }
