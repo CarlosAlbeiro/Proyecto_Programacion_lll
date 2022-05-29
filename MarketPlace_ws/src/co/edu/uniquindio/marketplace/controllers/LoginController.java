@@ -1,6 +1,7 @@
 
 package co.edu.uniquindio.marketplace.controllers;
 
+import co.edu.uniquindio.marketplace.exceptions.VendodoresException;
 import co.edu.uniquindio.marketplace.model.MarketPlace;
 import java.io.IOException;
 import java.net.URL;
@@ -93,6 +94,14 @@ public class LoginController implements Initializable {
         String clave = this.pass_contr.getText();
         String correo = this.texf_usuario.getText();
 
+        try {
+			singleton.validarUsuario(correo, clave);//aun no funciona la validacion 
+		} catch (IOException | VendodoresException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+      
+        
     }
     
     
@@ -107,6 +116,8 @@ public class LoginController implements Initializable {
 		}
 
     }//Esta en prueba
+    
+  
 
     
     

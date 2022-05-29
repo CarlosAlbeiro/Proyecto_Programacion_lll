@@ -7,6 +7,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import co.edu.uniquindio.marketplace.model.MarketPlace;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,12 +27,19 @@ public class Pantalla_CargaController implements Initializable {
 
     @FXML
     private StackPane RootPane;
+    SingletonMarket singletonMarket = new SingletonMarket();
  @Override
     public void initialize(URL url, ResourceBundle rb) {
+	 
+	     
+ 	     singletonMarket.guardarResourceXML();
+ 	     singletonMarket.leerEmpresaXML();//no se pq no me la carga
+ 	     	 
         //seteo de la clase y arranque
         new SplashScreen().start();
     }   
     
+ 
     class SplashScreen extends  Thread{
     
         public void run(){
@@ -68,6 +77,9 @@ public class Pantalla_CargaController implements Initializable {
                 Logger.getLogger(Pantalla_CargaController.class.getName()).log(Level.SEVERE, null, ex);
             } 
         }
+        
+      
     }
+    
     
 }

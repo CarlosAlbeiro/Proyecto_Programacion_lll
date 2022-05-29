@@ -105,6 +105,8 @@ public class RegistroController implements Initializable {
         SingletonMarket singleton= new SingletonMarket().getInstance(); 
         try {
 			singleton.registrarVendedores(nombre,apellido,telefono,cedula,correo,clave,confirClave);
+			mostrarAlertInfo();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(null, "El sistema se esta actualizando");
@@ -137,5 +139,33 @@ public class RegistroController implements Initializable {
                 //Stage cerrarPantalla = (Stage) this.But_volver.getScene().getWindow();
                 //cerrarPantalla.close();
     }
+
+    //__________________________ALertas para mensajes____________________________________________
+	 @FXML
+	    private void mostrarAlertError() {
+	        Alert alert = new Alert(Alert.AlertType.ERROR);
+	        alert.setHeaderText(null);
+	        alert.setTitle("Error");
+	        alert.setContentText("Error en la aplicacion");
+	        alert.showAndWait();
+	    }
+
+	    @FXML
+	    private void mostrarAlertInfo() {
+	        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+	        alert.setHeaderText(null);
+	        alert.setTitle("Info");
+	        alert.setContentText("Se registro correctamente");
+	        alert.showAndWait();
+	    }
+
+	    @FXML
+	    private void mostrarAlertWarning() {
+	        Alert alert = new Alert(Alert.AlertType.WARNING);
+	        alert.setHeaderText(null);
+	        alert.setTitle("Info");
+	        alert.setContentText("Campos vacios");
+	        alert.showAndWait();
+	    }
 
     }

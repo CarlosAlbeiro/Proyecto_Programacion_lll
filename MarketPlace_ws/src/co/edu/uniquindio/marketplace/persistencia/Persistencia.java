@@ -16,7 +16,6 @@ import co.edu.uniquindio.marketplace.model.Vendedores;
 public class Persistencia {
 
 	public static final String RUTA_ARCHIVO_VENDEDORES = "src/resources/vendedores.txt";
-	public static final String RUTA_ARCHIVO_USUARIOS = "src/resources/usuarios.txt";
 	public static final String RUTA_ARCHIVO_LOG = "src/resources/MarketPlaceLog.txt";
 	public static final String RUTA_ARCHIVO_OBJETOS = "src/resources/archivoObjetos.txt";
 	public static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_BINARIO = "src/resources/model.dat";
@@ -31,17 +30,17 @@ public class Persistencia {
 
 		
 
-//		//cargar archivos empleados
-//		ArrayList<Empleado> empleadosCargados = cargarEmpleados();
-//
-//		if(empleadosCargados.size() > 0)
-//			banco.getListaEmpleados().addAll(empleadosCargados);
-//
-//		//cargar archivo objetos
-//
-//		//cargar archivo empleados
-//
-//		//cargar archivo prestamo
+		//cargar archivos vendedores
+		ArrayList<Vendedores> vendedoressCargados = cargarVendedores(null);
+
+		if(vendedoresCargados.size() > 0)
+			market.getListaVendedores().addAll(vendedoresCargados);
+
+		//cargar archivo objetos
+
+		//cargar archivo empleados
+
+		//cargar archivo prestamo
 
 	}
 
@@ -49,8 +48,8 @@ public class Persistencia {
 
 
 
-	private static ArrayList<Vendedores> cargarVendedores(String rutaArchivoUsuarios) throws IOException {
-		ArrayList<Vendedores> vendedores =new ArrayList<Vendedores>();
+	public static ArrayList<Vendedores> cargarVendedores(String ruta) throws IOException {
+		ArrayList<Vendedores> vendedores = new ArrayList<Vendedores>();
 
 		ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_VENDEDORES);
 		String linea="";
@@ -59,12 +58,13 @@ public class Persistencia {
 		{
 			linea = contenido.get(i);
 			Vendedores vendedor = new Vendedores();
-			vendedor.setNombre(linea.split(",")[0]);
-			vendedor.setApellido(linea.split(",")[1]);
-			vendedor.setCedula(linea.split(",")[2]);
-			vendedor.setCorreo(linea.split("")[3]);
-			vendedor.setClave(linea.split("")[4]);
-			vendedor.setTelefono(linea.split("")[5]);
+			vendedor.setNombre(linea.split("#")[0]);
+			vendedor.setApellido(linea.split("#")[1]);
+			vendedor.setCedula(linea.split("#")[2]);
+			vendedor.setCorreo(linea.split("#")[3]);
+			vendedor.setClave(linea.split("#")[4]);
+			vendedor.setConfiClave(linea.split("#")[5]);
+			vendedor.setTelefono(linea.split("#")[6]);
 			
 			vendedores.add(vendedor);
 		}
@@ -81,18 +81,7 @@ public class Persistencia {
 	 * @param ruta
 	 * @throws IOException
 	 */
-//	public static void guardarClientes(ArrayList<Cliente> listaClientes) throws IOException {
-//		// TODO Auto-generated method stub
-//		String contenido = "";
-//
-//		for(Cliente cliente:listaClientes)
-//		{
-//			contenido+= cliente.getNombre()+","+cliente.getApellido()+","+cliente.getCedula()+","+cliente.getDireccion()
-//		     +","+cliente.getCorreo()+","+cliente.getFechaNacimiento()+","+cliente.getTelefono()+"\n";
-//		}
-//		ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_CLIENTES, contenido, false);
-//
-//	}
+
 
 
 	public static void guardarVendedor(ArrayList<Vendedores> listaVendedores) throws IOException {
@@ -119,28 +108,6 @@ public class Persistencia {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public static ArrayList<Vendedores> cargarClientes() throws FileNotFoundException, IOException
-	{
-		ArrayList<Vendedores> vendedores =new ArrayList<Vendedores>();
-
-		ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_VENDEDORES);
-		String linea="";
-
-		for (int i = 0; i < contenido.size(); i++)
-		{
-			linea = contenido.get(i);
-			Vendedores vendedor = new Vendedores();
-			vendedor.setNombre(linea.split(",")[0]);
-			vendedor.setApellido(linea.split(",")[1]);
-			vendedor.setCedula(linea.split(",")[2]);
-			vendedor.setCorreo(linea.split(",")[3] );
-			vendedor.setClave(linea.split(",")[4]);
-			vendedor.setTelefono(linea.split(",")[5]);
-			vendedores.add(vendedor);
-		}
-		return vendedores;
-	}
-
 
 	public static void guardaRegistroLog(String mensajeLog, int nivel, String accion)
 	{
@@ -161,7 +128,7 @@ public class Persistencia {
 
 	private static boolean validarUsuario(String correo, String clave) throws FileNotFoundException, IOException
 	{
-		ArrayList<Vendedores> vendedores = Persistencia.cargarVendedores(RUTA_ARCHIVO_USUARIOS);
+		ArrayList<Vendedores> vendedores = Persistencia.cargarVendedores(RUTA_ARCHIVO_VENDEDORES);
 
 		for (int indiceUsuario = 0; indiceUsuario < vendedores.size(); indiceUsuario++)
 		{
@@ -173,22 +140,48 @@ public class Persistencia {
 		return false;
 	}
 
-	public static ArrayList<Vendedores> cargarUsuarios(String ruta) throws FileNotFoundException, IOException {
-		ArrayList<Vendedores> vendedores =new ArrayList<Vendedores>();
+//	public static ArrayList<Vendedores> cargarUsuarios(String ruta) throws FileNotFoundException, IOException {
+//		ArrayList<Vendedores> vendedores =new ArrayList<Vendedores>();
+//
+//		ArrayList<String> contenido = ArchivoUtil.leerArchivo(ruta);
+//		String linea="";
+//
+//		for (int i = 0; i < contenido.size(); i++) {
+//			linea = contenido.get(i);
+//
+//			Vendedores vendedor = new Vendedores();
+//			vendedor.setCorreo(linea.split("")[0]);
+//			vendedor.setClave(linea.split("")[1]);
+//
+//			Vendedores.add(vendedor);
+//		}
+//		return vendedores;
+//	}
 
-		ArrayList<String> contenido = ArchivoUtil.leerArchivo(ruta);
-		String linea="";
 
-		for (int i = 0; i < contenido.size(); i++) {
-			linea = contenido.get(i);
 
-			Vendedores vendedor = new Vendedores();
-			vendedor.setCorreo(linea.split("")[0]);
-			vendedor.setClave(linea.split("")[1]);
 
-			Vendedores.add(vendedor);
+
+	public static void guardarRecursoMarketPlaceXML(MarketPlace market) {
+		try {
+			ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_MARKETPLACE_XML, market);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return vendedores;
+		
+	}
+
+
+
+
+
+	public static MarketPlace leerMarketPlaceXML() throws IOException {
+		Object objeto = ArchivoUtil.cargarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_MARKETPLACE_XML);
+	
+		MarketPlace market =(MarketPlace) objeto;
+		
+		return market;
 	}
 
 

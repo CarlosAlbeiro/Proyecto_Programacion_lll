@@ -1,11 +1,16 @@
 package co.edu.uniquindio.marketplace.controllers;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import javax.swing.JOptionPane;
 
 import co.edu.uniquindio.marketplace.exceptions.VendodoresException;
 import co.edu.uniquindio.marketplace.model.MarketPlace;
 import co.edu.uniquindio.marketplace.model.Vendedores;
 import co.edu.uniquindio.marketplace.persistencia.Persistencia;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 
 
 public class SingletonMarket {
@@ -90,27 +95,52 @@ public class SingletonMarket {
 //	}
 //
 //
-//	public void guardarResourceXML() {
-//
-//	    Persistencia.guardarRecursoBancoXML(banco);
-//	}
+	public void guardarResourceXML() {
+		market = new MarketPlace();
+		market.setNombre("MI MARKTEPLACE");
+		
+		Vendedores vendedores = new Vendedores();//hay que mirar si esto se puede sacar del archivo vendedores
+		vendedores.setNombre("Ruben");
+		vendedores.setApellido("Garrido");
+		vendedores.setCedula("100939838");
+		vendedores.setCorreo("admi");
+		vendedores.setClave("pepe");
+		vendedores.setConfiClave("pepe");
+		vendedores.setTelefono("100938");
+		
+		market.getListaVendedores().add(vendedores);
+
+		try {
+			 Persistencia.guardarRecursoMarketPlaceXML(market);
+			
+		} catch (Exception e) {
+			
+			JOptionPane.showMessageDialog(null, "Datos no existen");
+			
+		}
+	   
+	}
+	
+	public MarketPlace leerEmpresaXML() {
+		
+		MarketPlace market = null;
+		
+		try {
+			market = Persistencia.leerMarketPlaceXML();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "No hay datos");
+		}
+		
+		return market;
+	}
 
 
 //
 	private void inicializarDatos() {
 //
-//		market = new MarketPlace();
-//
-//		Vendedores vendedores = new Vendedores();
-//		vendedores.setNombre("juan");
-//		vendedores.setApellido("arias");
-//		vendedores.setCedula("125454");
-//		vendedores.setClave("Arme");
-//		vendedores.setCorreo("uni1@");
-//		vendedores.setTelefono("125444");
-//
-//		market.getListaVendedores().add(vendedores);
-//
+
 //		
 //
 //		System.out.println("Banco inicializado "+market );
@@ -149,6 +179,21 @@ public class SingletonMarket {
 		return creado;
 	}
 
+	public boolean validarUsuario(String correo, String clave) throws FileNotFoundException, IOException, VendodoresException {
+		boolean verificado = false;
+		
+		Persistencia.iniciarSesion(correo, clave);
+		if (verificado) {
+			
+			return verificado;
+		}
+		
+		return verificado;
+	}
+	
+
+
+
 	
 	
 //
@@ -160,6 +205,6 @@ public class SingletonMarket {
 //
 
 
-
+	
 
 }
