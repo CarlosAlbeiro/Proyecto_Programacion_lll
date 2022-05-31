@@ -105,7 +105,6 @@ public class SingletonMarket {
 		vendedores.setCedula("100939838");
 		vendedores.setCorreo("admi");
 		vendedores.setClave("pepe");
-		vendedores.setConfiClave("pepe");
 		vendedores.setTelefono("100938");
 		
 		market.getListaVendedores().add(vendedores);
@@ -158,7 +157,7 @@ public class SingletonMarket {
 	}
 
 	public boolean registrarVendedores(String nombre, String apellido, String telefono, String cedula, String correo,
-		String clave, String confirClave) throws IOException   {
+		String clave) throws IOException   {
 		boolean creado = false;
 		Vendedores vendedor = new Vendedores();
 		vendedor.setNombre(nombre);
@@ -166,7 +165,6 @@ public class SingletonMarket {
 		vendedor.setCedula(cedula);
 		vendedor.setCorreo(correo);
 		vendedor.setClave(clave);
-		vendedor.setConfiClave(confirClave);
 		vendedor.setTelefono(telefono);
 		
 		creado = market.registrarVendedores(vendedor);
@@ -182,7 +180,7 @@ public class SingletonMarket {
 	public boolean validarUsuario(String correo, String clave) throws FileNotFoundException, IOException, VendodoresException {
 		boolean verificado = false;
 		
-		Persistencia.iniciarSesion(correo, clave);
+		verificado=Persistencia.iniciarSesion(correo, clave);
 		if (verificado) {
 			
 			return verificado;

@@ -65,7 +65,7 @@ public class LoginController implements Initializable {
     @FXML
     private void HacerRegistro(ActionEvent event) {
         
-         //iniciar la pantalla del lobbie
+        //iniciar la pantalla del lobbie
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/marketplace/views/registro.fxml"));
                 
                 Parent root = null;
@@ -93,9 +93,36 @@ public class LoginController implements Initializable {
     private void Iniciar_Sesion(ActionEvent event) {
         String clave = this.pass_contr.getText();
         String correo = this.texf_usuario.getText();
+        String msj;
 
-        try {
-			singleton.validarUsuario(correo, clave);//aun no funciona la validacion 
+        try { 
+			if (singleton.validarUsuario(correo, clave)) {//ya sirve, falta cuadrar la excepcion
+				msj="Ingreso exitoso";
+				mostrarAlertInfo(msj);
+				
+				//Abrir pantalla de in inicio
+		        FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/marketplace/views/inicioDeseccion.fxml"));
+		                Parent root = null;
+		        try {
+		            root = loader.load();
+		        } catch (IOException ex) {
+		            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		        }
+		                //Controlador de la vista
+		                RegistroController controlador = loader.getController();//poner la clase del controlador 
+		                Scene scene = new Scene(root);
+		                Stage stage = new Stage ();
+		                stage.initModality(Modality.APPLICATION_MODAL);
+		                stage.setScene(scene);
+		                stage.show();
+		                //abre y cierra las diferentes ventanas
+		                stage.setOnCloseRequest(e -> controlador.closeWindows());
+		                Stage cerrarPantalla = (Stage) this.bbt_iniciarSesion.getScene().getWindow();
+		                cerrarPantalla.close();
+			}else {
+				msj="no esta entrando";
+				mostrarAlertError(msj);
+			}
 		} catch (IOException | VendodoresException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -117,8 +144,33 @@ public class LoginController implements Initializable {
 
     }//Esta en prueba
     
-  
+    //__________________________ALertas para mensajes____________________________________________
 
-    
+    @FXML
+    private void mostrarAlertError(String msj) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setTitle("Error");
+        alert.setContentText(msj);
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void mostrarAlertInfo(String msj) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Info");
+        alert.setContentText(msj);
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void mostrarAlertWarning() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(null);
+        alert.setTitle("Info");
+        alert.setContentText("Campos vacios");
+        alert.showAndWait();
+    }
     
 }

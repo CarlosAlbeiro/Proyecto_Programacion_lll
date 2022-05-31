@@ -28,13 +28,11 @@ public class Persistencia {
 		//cargar archivo de vendedores
 		ArrayList<Vendedores> vendedoresCargados = cargarVendedores(null);
 
-		
-
-		//cargar archivos vendedores
-		ArrayList<Vendedores> vendedoressCargados = cargarVendedores(null);
-
 		if(vendedoresCargados.size() > 0)
 			market.getListaVendedores().addAll(vendedoresCargados);
+
+		//cargar archivos vendedores
+		//ArrayList<Vendedores> vendedoressCargados = cargarVendedores(null);
 
 		//cargar archivo objetos
 
@@ -63,8 +61,7 @@ public class Persistencia {
 			vendedor.setCedula(linea.split("#")[2]);
 			vendedor.setCorreo(linea.split("#")[3]);
 			vendedor.setClave(linea.split("#")[4]);
-			vendedor.setConfiClave(linea.split("#")[5]);
-			vendedor.setTelefono(linea.split("#")[6]);
+			vendedor.setTelefono(linea.split("#")[5]);
 			
 			vendedores.add(vendedor);
 		}
@@ -116,12 +113,13 @@ public class Persistencia {
 	}
 
 
-	public static boolean iniciarSesion(String usuario, String contrasenia) throws FileNotFoundException, IOException, VendodoresException {
+	public static boolean iniciarSesion(String correo, String clave) throws FileNotFoundException, IOException, VendodoresException {
 
-		if(validarUsuario(usuario,contrasenia)) {
+		if(validarUsuario(correo,clave)) {
 			return true;
 		}else {
 			throw new VendodoresException();
+			
 		}
 
 	}

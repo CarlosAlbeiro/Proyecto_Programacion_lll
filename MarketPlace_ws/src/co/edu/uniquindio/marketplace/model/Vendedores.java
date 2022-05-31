@@ -17,7 +17,6 @@ import java.util.ArrayList;
     private String apellido;
     private String cedula;
     private String clave;
-    private String confiClave;
     private String correo;
     private String telefono;
     private Comentario comentario;
@@ -83,14 +82,6 @@ import java.util.ArrayList;
         this.clave = clave;
     }
 
-    
-    public String getConfiClave() {
-		return confiClave;
-	}
-
-	public void setConfiClave(String confiClave) {
-		this.confiClave = confiClave;
-	}
 
 	public Comentario getComentario() {
         return comentario;

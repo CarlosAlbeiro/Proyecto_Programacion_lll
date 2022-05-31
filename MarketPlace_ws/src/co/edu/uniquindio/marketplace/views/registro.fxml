@@ -7,17 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="615.0" prefWidth="446.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.marketplace.controllers.RegistroController">
+<AnchorPane id="AnchorPane" prefHeight="615.0" prefWidth="531.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.marketplace.controllers.RegistroController">
    <children>
-      <Label layoutX="51.0" layoutY="115.0" text="Nombre:" />
-      <Label layoutX="52.0" layoutY="181.0" text="Apellidos:">
-         <font>
-            <Font name="Cambria" size="12.0" />
-         </font>
-      </Label>
-      <TextField fx:id="Tex_nombre" layoutX="52.0" layoutY="142.0" />
+      <TextField fx:id="Tex_nombre" layoutX="38.0" layoutY="149.0" text="Nombre" />
       <Label fx:id="Tex_Nombre" layoutX="51.0" layoutY="81.0" text="Por favor diligencie el siguiente formulario:" />
-      <TextField fx:id="Tex_apellidos" layoutX="52.0" layoutY="205.0" />
+      <TextField fx:id="Tex_apellidos" layoutX="213.0" layoutY="149.0" text="Apellido" />
       <Label layoutX="52.0" layoutY="241.0" text="E-mail:" />
       <Label layoutX="53.0" layoutY="307.0" text="Cedula:" />
       <TextField fx:id="Tex_correo" layoutX="53.0" layoutY="268.0" />
