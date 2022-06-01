@@ -107,7 +107,7 @@ public class RegistroController implements Initializable {
 				mostrarAlertInfo(msj);
 				// Abrir pantalla de in inicio
 				FXMLLoader loader = new FXMLLoader(
-						getClass().getResource("/co/edu/uniquindio/marketplace/views/inicioDeseccion.fxml"));
+						getClass().getResource("/co/edu/uniquindio/marketplace/views/login.fxml"));
 				Parent root = null;
 				try {
 					root = loader.load();

@@ -109,16 +109,16 @@ public class LoginController implements Initializable {
 		            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
 		        }
 		                //Controlador de la vista
-		                RegistroController controlador = loader.getController();//poner la clase del controlador 
+		                InicioDeSeccionController controlador = loader.getController();//poner la clase del controlador 
 		                Scene scene = new Scene(root);
 		                Stage stage = new Stage ();
 		                stage.initModality(Modality.APPLICATION_MODAL);
 		                stage.setScene(scene);
 		                stage.show();
 		                //abre y cierra las diferentes ventanas
-		                stage.setOnCloseRequest(e -> controlador.closeWindows());
-		                Stage cerrarPantalla = (Stage) this.bbt_iniciarSesion.getScene().getWindow();
-		                cerrarPantalla.close();
+//		                stage.setOnCloseRequest(e -> controlador.closeWindows());
+//		                Stage cerrarPantalla = (Stage) this.bbt_iniciarSesion.getScene().getWindow();
+//		                cerrarPantalla.close();
 			}else {
 				msj="no esta entrando";
 				mostrarAlertError(msj);
