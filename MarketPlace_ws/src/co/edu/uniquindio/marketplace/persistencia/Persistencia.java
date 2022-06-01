@@ -90,7 +90,7 @@ public class Persistencia {
 		{
 			contenido+= vendedor.getNombre()+"#"+vendedor.getApellido()+"#"+vendedor.getCedula()+"#"+vendedor.getCorreo()+"#"+vendedor.getClave()+"#"+vendedor.getTelefono()+"\n";
 		}
-		ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_VENDEDORES, contenido, false);
+		ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_VENDEDORES, contenido, true);
 	}
  
 

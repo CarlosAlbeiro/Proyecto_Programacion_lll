@@ -107,7 +107,7 @@ public class RegistroController implements Initializable {
 				mostrarAlertInfo(msj);
 				// Abrir pantalla de in inicio
 				FXMLLoader loader = new FXMLLoader(
-						getClass().getResource("/co/edu/uniquindio/marketplace/views/inicioDeseccion.fxml"));
+						getClass().getResource("/co/edu/uniquindio/marketplace/views/login.fxml"));
 				Parent root = null;
 				try {
 					root = loader.load();
@@ -115,16 +115,16 @@ public class RegistroController implements Initializable {
 					Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
 				}
 				// Controlador de la vista
-				RegistroController controlador = loader.getController();// poner la clase del controlador
+				LoginController controlador = loader.getController();// poner la clase del controlador
 				Scene scene = new Scene(root);
 				Stage stage = new Stage();
 				stage.initModality(Modality.APPLICATION_MODAL);
 				stage.setScene(scene);
 				stage.show();
-				// abre y cierra las diferentes ventanas
-				stage.setOnCloseRequest(e -> controlador.closeWindows());
-				Stage cerrarPantalla = (Stage) this.But_regis.getScene().getWindow();
-				cerrarPantalla.close();
+//				// abre y cierra las diferentes ventanas
+//				stage.setOnCloseRequest(e -> controlador.closeWindows());
+//				Stage cerrarPantalla = (Stage) this.But_regis.getScene().getWindow();
+//				cerrarPantalla.close();
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
