@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.marketplace.controllers.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.marketplace.controllers.LoginController">
    <top>
       <Pane prefHeight="404.0" prefWidth="600.0" style="-fx-background-color: #ffff;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="texf_usuario" layoutX="96.0" layoutY="147.0" prefHeight="32.0" prefWidth="183.0" promptText="Correo" style="-fx-border-color: #0000;" />
+            <TextField fx:id="texf_usuario" layoutX="96.0" layoutY="147.0" prefHeight="32.0" prefWidth="183.0" promptText="Correo" />
             <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="45.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/Imagenes/programador.png" />
@@ -27,18 +27,18 @@
                   <Image url="@../resources/Imagenes/contrasena.png" />
                </image>
             </ImageView>
-            <Button fx:id="bbt_registro" layoutX="128.0" layoutY="329.0" mnemonicParsing="false" onAction="#HacerRegistro" prefHeight="35.0" prefWidth="99.0" style="-fx-background-color: #EC684D; -fx-background-radius: 100;" text="Registrarse" textFill="#f7f7f7">
+            <Button fx:id="bbt_registro" layoutX="128.0" layoutY="329.0" mnemonicParsing="false" onAction="#HacerRegistro" prefHeight="35.0" prefWidth="99.0" style="-fx-background-color: #FB6E53; -fx-background-radius: 100;" text="Registrarse">
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button fx:id="bbt_iniciarSesion" layoutX="127.0" layoutY="273.0" mnemonicParsing="false" onAction="#Iniciar_Sesion" onKeyTyped="#iniciar_seccion" prefHeight="35.0" prefWidth="101.0" style="-fx-background-color: #2b76f0; -fx-background-radius: 100; -fx-border-radius: #000000;" text="Iniciar Sesion" textFill="#f5ecec">
+            <Button fx:id="bbt_iniciarSesion" layoutX="127.0" layoutY="273.0" mnemonicParsing="false" onAction="#Iniciar_Sesion" onKeyTyped="#iniciar_seccion" prefHeight="35.0" prefWidth="101.0" style="-fx-background-color: #52FAB8; -fx-background-radius: 100;" text="Iniciar Sesion">
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button fx:id="btt_salir" layoutX="2.0" layoutY="1.0" minWidth="37.0" mnemonicParsing="false" onAction="#Salir" prefHeight="26.0" prefWidth="37.0" style="-fx-background-color: #EC684D; -fx-background-radius: 100;" text="X" textFill="#fcf8f8" />
-            <ImageView fitHeight="276.0" fitWidth="281.0" layoutX="300.0" layoutY="74.0" pickOnBounds="true">
+            <Button fx:id="btt_salir" layoutX="2.0" layoutY="1.0" minWidth="37.0" mnemonicParsing="false" onAction="#Salir" prefHeight="26.0" prefWidth="37.0" style="-fx-background-color: #FB6E53; -fx-background-radius: 100;" text="X" />
+            <ImageView fitHeight="293.0" fitWidth="320.0" layoutX="300.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Imagenes/logo2.jpeg" />
+                  <Image url="@../resources/Imagenes/Negro%20Rojo%20eSports%20Ilustrativo%20Gaming%20Videojuegos%20Logotipo.png" />
                </image>
             </ImageView>
             <Line endX="115.0" layoutX="146.0" layoutY="320.0" startX="-51.099998474121094" />

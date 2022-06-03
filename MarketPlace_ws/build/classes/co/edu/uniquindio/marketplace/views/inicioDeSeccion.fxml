@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -10,29 +9,36 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
-    <Tab text="Muro">
+    <Tab text="Publicar">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="600.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="600.0" style="-fx-background-color: #fffff;">
                <children>
-                  <TableView layoutX="14.0" layoutY="39.0" prefHeight="360.0" prefWidth="299.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="Nombre " />
-                        <TableColumn prefWidth="75.0" text="Codigo" />
-                        <TableColumn prefWidth="75.0" text="Categoria" />
-                        <TableColumn prefWidth="75.0" text="Precio" />
-                     </columns>
-                  </TableView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="316.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="362.0" layoutY="219.0" mnemonicParsing="false" text="vender" />
-                  <Label layoutX="325.0" layoutY="177.0" text="Cantidad:" />
-                  <TextField layoutX="376.0" layoutY="173.0" prefHeight="25.0" prefWidth="25.0" />
-                  <ComboBox layoutX="441.0" layoutY="173.0" prefWidth="150.0" promptText="Estado" />
+                  <TextField fx:id="Tex_nombre" layoutX="27.0" layoutY="26.0" prefHeight="34.0" prefWidth="290.0" promptText="Codigo" />
+                  <TextField fx:id="Tex_apellidos" layoutX="27.0" layoutY="72.0" prefHeight="34.0" prefWidth="291.0" promptText="Nombre" />
+                  <TextField fx:id="Tex_contrase" layoutX="27.0" layoutY="121.0" prefHeight="34.0" prefWidth="292.0" promptText="Precio" />
+                  <Button fx:id="But_volver" layoutX="402.0" layoutY="352.0" mnemonicParsing="false" onAction="#eventoVolver" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #FB6E53; -fx-background-radius: 100;" text="Volver">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="But_regis" layoutX="173.0" layoutY="352.0" mnemonicParsing="false" onAction="#eventoRegistrar" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #52FAB8; -fx-background-radius: 100;" text="Registrar">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="234.0" fitWidth="213.0" layoutX="360.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Imagenes/Negro_Rojo_eSports_Ilustrativo_Gaming_Videojuegos_Logotipo-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="Tex_contrase1" layoutX="27.0" layoutY="172.0" prefHeight="34.0" prefWidth="292.0" promptText="Categoria" />
                </children>
             </AnchorPane>
          </content>

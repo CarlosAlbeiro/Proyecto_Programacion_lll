@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 carlos#galeano#1005093133#carlos@hotmail.com#1#3005183772
 ruben #garrido#345345#admin#1#5456
 Sara#Cardenas#1007212485#admi#123#20192039
+=======
+Fabio#lasso#1005093133#fabio@gmail.com#fabio#312
+fabio#lasso#21#fabio@gmail.com#fabio#21312
+Carlos#Galeeano#1005093133#carlos@gmail.com#carlos#3005183772
+>>>>>>> 1f15d0dcfbcee49946bcc00c7467a3348c5c9ee7
