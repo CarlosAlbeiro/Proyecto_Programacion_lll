@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17.0.2" class="java.beans.XMLDecoder">
+ <object class="co.edu.uniquindio.marketplace.model.MarketPlace" id="MarketPlace0">
+  <void property="nombre">
+   <string>MI MARKTEPLACE</string>
+  </void>
+ </object>
+<void class="co.edu.uniquindio.marketplace.model.MarketPlace" id="Field0" method="getField">
+ <string>listaVendedores</string>
+ <void id="ArrayList0" method="get">
+  <object idref="MarketPlace0"/>
+  <void method="add">
+   <object class="co.edu.uniquindio.marketplace.model.Vendedores">
+    <void property="apellido">
+     <string>Garrido</string>
+    </void>
+    <void property="cedula">
+     <string>100939838</string>
+    </void>
+    <void property="clave">
+     <string>pepe</string>
+    </void>
+    <void property="correo">
+     <string>admi</string>
+    </void>
+    <void property="nombre">
+     <string>Ruben</string>
+    </void>
+    <void property="telefono">
+     <string>100938</string>
+    </void>
+   </object>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList0"/>
+</java>

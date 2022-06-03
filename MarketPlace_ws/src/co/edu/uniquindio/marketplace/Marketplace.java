@@ -10,6 +10,7 @@ import javafx.stage.Stage;
  *
  * @author Carlos Galeano
  * @author Ruben Garrido
+ * 
  */
 public class Marketplace extends Application {
       
