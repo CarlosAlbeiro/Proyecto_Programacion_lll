@@ -58,39 +58,7 @@ public class LoginController implements Initializable {
 		System.exit(0);
 	}
 
-<<<<<<< HEAD
-        try { 
-			if (singleton.validarUsuario(correo, clave)) {//ya sirve, falta cuadrar la excepcion
-				msj="Ingreso exitoso";
-				mostrarAlertInfo(msj);
-				
-				//Abrir pantalla de in inicio
-		        FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/marketplace/views/inicioDeseccion.fxml"));
-		                Parent root = null;
-		        try {
-		            root = loader.load();
-		        } catch (IOException ex) {
-		            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-		        }
-		                //Controlador de la vista
-		                InicioDeSeccionController controlador = loader.getController();//poner la clase del controlador 
-		                Scene scene = new Scene(root);
-		                Stage stage = new Stage ();
-		                stage.initModality(Modality.APPLICATION_MODAL);
-		                stage.setScene(scene);
-		                stage.show();
-		                //abre y cierra las diferentes ventanas
-//		                stage.setOnCloseRequest(e -> controlador.closeWindows());
-//		                Stage cerrarPantalla = (Stage) this.bbt_iniciarSesion.getScene().getWindow();
-//		                cerrarPantalla.close();
-			}else {
-				msj="no esta entrando";
-				mostrarAlertError(msj);
-			}
-		} catch (IOException | VendodoresException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-=======
+
 	@FXML
 	private void HacerRegistro(ActionEvent event) {
 
@@ -103,7 +71,7 @@ public class LoginController implements Initializable {
 			root = loader.load();
 		} catch (IOException ex) {
 			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
->>>>>>> 1f15d0dcfbcee49946bcc00c7467a3348c5c9ee7
+
 		}
 
 		// Controlador de la vista
